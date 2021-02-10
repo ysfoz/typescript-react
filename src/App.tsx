@@ -14,6 +14,7 @@ const App = () => {
   const [userAnswers,setUserAnswers] =useState([])
   const [score,setScore] = useState(0)
   const [gameOver,setGameOver] =useState(true)
+  console.log(fetchQuizQuestions(TOTAL_QUESTIONS,Difficulty.EASY))
 
   useEffect(()=>{fetchQuizQuestions(TOTAL_QUESTIONS,Difficulty.EASY)},[])
 

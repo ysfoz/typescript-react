@@ -1,8 +1,16 @@
 
 # Video
-<img src = "./src/assets/pc.gif" width =300>
 
-<img src = "./src/assets/mobile.gif" width =300>
+## WEB
+<img src = "./src/assets/pc.gif" width =800>
+
+<br>
+<br>
+<br>
+
+## Mobile
+
+<img src = "./src/assets/mobile.gif" width =800>
 
 # Getting Started with Create React App
 

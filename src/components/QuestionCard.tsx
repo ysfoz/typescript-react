@@ -19,7 +19,7 @@ const QuestionCard: React.FC<Props> = ({
         <p className='number'>
             Question: {questionNr} / {totalQuestios}
         </p>
-        <p className='category' style={{color:'crimson'}}>Category : {category}</p>
+        <p className='category' style={{color:'crimson'}}>{category}</p>
         <p dangerouslySetInnerHTML={{ __html: question }} />
         <div>
             {answers?.map((answer,index) => (

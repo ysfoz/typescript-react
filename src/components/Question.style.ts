@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   max-width: 1100px;
   background: #ebfeff;
   border-radius: 10px;
-  border: 2px solid #0085a3;
+  border: 2px solid  #311b92;
   padding: 20px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
   text-align: center;
@@ -36,9 +36,9 @@ export const ButtonWrapper = styled.div<ButtonWrapperProps>`
         : !correct && userClicked
         ? 'linear-gradient(90deg, #FF5656, #C16868)'
         : 'linear-gradient(90deg, #546e7a, #007c91)'};
-    border: 3px solid #ffffff;
+    border: 2px solid #ede7f6;
     box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 20px;
     color: #fff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
   }

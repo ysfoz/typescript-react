@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import QuestionCard from './components/QuestionCard'
 import { fetchQuizQuestions, QuestionState } from './API'
 import { GlobalStyle, Wrapper } from './App.style'
@@ -26,8 +26,8 @@ const App = () => {
   const [difficulty, setDifficulty] = useState('easy')
 
 
-
-  console.log(questions)
+  console.log(number)
+  // console.log(questions)
 
 
   const startTravia = async () => {
@@ -47,7 +47,7 @@ const App = () => {
   const SelectedDifficulty = (e: React.FormEvent<HTMLSelectElement>) => {
     const SelectValue: string = e?.currentTarget?.value
     setDifficulty(SelectValue)
-   
+
   }
 
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -75,25 +75,25 @@ const App = () => {
     const nextQuestion = number + 1;
     if (nextQuestion === TOTAL_QUESTIONS) {
       setGameOver(true);
-      
+
     } else {
       setNumber(nextQuestion)
     }
   }
- 
-console.log(questions[number]?.category)
+
+  console.log(questions[number]?.category)
   return (
     <>
       <GlobalStyle />
-      <Wrapper>
+      <Wrapper score ={score}>
         <h1>TRIVIA QUIZZ</h1>
-       
-          
+
+
         {gameOver || userAnswers?.length === TOTAL_QUESTIONS
           ?
           (
             <form id='dificultyForm' >
-              <label >Select Difficulty  : 
+              <label >Select Difficulty  :
 <select name="difficulty" id="difficulty" onChange={e => SelectedDifficulty(e)}>
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -123,10 +123,10 @@ console.log(questions[number]?.category)
 
         {loading && <p>Loading Questions . . . </p>}
 
-        {!gameOver && !loading && 
+        {!gameOver && !loading && !userAnswers[9] &&
           (
             <QuestionCard
-              category = {questions[number]?.category}
+              category={questions[number]?.category}
               answers={questions[number]?.answers}
               question={questions[number]?.question}
               callback={checkAnswer}
@@ -146,11 +146,22 @@ console.log(questions[number]?.category)
           null
 
         }
-      {number + 1 == 10 && userAnswers[number] && score >= 5 ? <img src={victory} alt="dd"/> : null}
-      {number + 1 == 10 && userAnswers[number] && score < 5 ? <img src={loser} alt="dd"/> : null}
-      
-     
-     
+        {number + 1 === 10 && userAnswers[number] && score >= 5
+          ? <div className='imgWrapper'><img  className='img' src={victory} alt="dd" /></div>
+          :
+          null
+        }
+
+
+        {number + 1 === 10 && userAnswers[number] && score < 5
+          ?
+          <div className='imgWrapper'><img className='img' src={loser} alt="dd" /> </div>
+          :
+          null
+        }
+
+
+
       </Wrapper>
 
 

@@ -1,3 +1,9 @@
+
+# Video
+<img src = "./src/assets/pc.gif" width =300>
+
+<img src = "./src/assets/mobile.gif" width =300>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import QuestionCard from './components/QuestionCard'
 import { fetchQuizQuestions, QuestionState } from './API'
 import { GlobalStyle, Wrapper } from './App.style'
+import victory from './assets/victory.gif'
+import loser from './assets/loser.gif'
 
 export type AnswerObject = {
   question: string;
@@ -22,6 +24,8 @@ const App = () => {
   const [score, setScore] = useState(0)
   const [gameOver, setGameOver] = useState(true)
   const [difficulty, setDifficulty] = useState('easy')
+
+
 
   console.log(questions)
 
@@ -71,17 +75,20 @@ const App = () => {
     const nextQuestion = number + 1;
     if (nextQuestion === TOTAL_QUESTIONS) {
       setGameOver(true);
-
+      
     } else {
       setNumber(nextQuestion)
     }
   }
-
+ 
+console.log(questions[number]?.category)
   return (
     <>
       <GlobalStyle />
       <Wrapper>
-        <h1>TRIVIA <span>QUIZZ</span> </h1>
+        <h1>TRIVIA QUIZZ</h1>
+       
+          
         {gameOver || userAnswers?.length === TOTAL_QUESTIONS
           ?
           (
@@ -116,9 +123,10 @@ const App = () => {
 
         {loading && <p>Loading Questions . . . </p>}
 
-        {!gameOver && !loading &&
+        {!gameOver && !loading && 
           (
             <QuestionCard
+              category = {questions[number]?.category}
               answers={questions[number]?.answers}
               question={questions[number]?.question}
               callback={checkAnswer}
@@ -138,7 +146,13 @@ const App = () => {
           null
 
         }
+      {number + 1 == 10 && userAnswers[number] && score >= 5 ? <img src={victory} alt="dd"/> : null}
+      {number + 1 == 10 && userAnswers[number] && score < 5 ? <img src={loser} alt="dd"/> : null}
+      
+     
+     
       </Wrapper>
+
 
     </>
   )

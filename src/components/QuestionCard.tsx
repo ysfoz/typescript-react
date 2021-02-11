@@ -2,6 +2,7 @@ import React from 'react';
 import { AnswerObject } from '../App';
 import { ButtonWrapper, Wrapper} from './Question.style'
 type Props = {
+    category:string;
     question: string;
     answers: string[];
     callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -11,13 +12,14 @@ type Props = {
 }
 
 const QuestionCard: React.FC<Props> = ({
-    answers, question, callback, userAnswer, questionNr, totalQuestios
+    answers, question, callback, userAnswer, questionNr, totalQuestios,category
 }
 ) => (
     <Wrapper>
         <p className='number'>
             Question: {questionNr} / {totalQuestios}
         </p>
+        <p className='category' style={{color:'crimson'}}>Category : {category}</p>
         <p dangerouslySetInnerHTML={{ __html: question }} />
         <div>
             {answers?.map((answer,index) => (

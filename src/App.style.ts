@@ -72,6 +72,6 @@ export const Wrapper = styled.div`
     margin-left:20px;
     font-size:1.3rem;
   }
-
+ 
   
 `;

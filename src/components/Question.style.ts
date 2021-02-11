@@ -42,4 +42,9 @@ export const ButtonWrapper = styled.div<ButtonWrapperProps>`
     color: #fff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
   }
+
+.category {
+    color:crimson;
+    background-color:red;
+  }
 `;

@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
   }
   .score {
     color: #fff;
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 0;
   }
   h1 {
@@ -45,21 +45,33 @@ export const Wrapper = styled.div`
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     filter: drop-shadow(2px 2px #0085a3);
-    font-size: 70px;
+    font-size: 5rem;
     text-align: center;
     margin: 20px;
   }
   .start, .next {
     cursor: pointer;
-    background: linear-gradient(180deg, #ffffff, #ffcc91);
-    border: 2px solid #d38558;
+    background: linear-gradient(180deg, #ffffff, #6ff9ff);
+    border: 2px solid #0095a8;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     height: 40px;
     margin: 20px 0;
     padding: 0 40px;
+    font-size:1rem;
   }
   .start {
     max-width: 200px;
   }
+
+  label {
+    color:white;
+    font-size:2rem;
+  }
+  select{
+    margin-left:20px;
+    font-size:1.3rem;
+  }
+
+  
 `;

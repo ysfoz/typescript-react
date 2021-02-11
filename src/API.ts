@@ -13,16 +13,17 @@ export type Question ={
 
 export type QuestionState = Question & { answers:string[]}
 
-export enum Difficulty {
-    EASY = 'easy',
-    MEDIUM = 'medium',
-    HARD = 'hard'
-}
+// export enum Difficulty {   bu sekilde tanimlayip parametre olarak fonksiyon icine yazabilirdik
+// export const fetchQuizQuestions = async (amaunt: number, difficulty: Difficulty) => {   ama bu yazimda select kismi hata verdi
+//     EASY = 'easy',
+//     MEDIUM = 'medium',
+//     HARD = 'hard'
+// }
 
-export const fetchQuizQuestions = async (amaunt: number, difficulty: Difficulty) => {
+export const fetchQuizQuestions = async (amaunt: number, difficulty:string) => {
     try {
         const res = await axios.get(`https://opentdb.com/api.php?amount=${amaunt}&difficulty=${difficulty}&type=multiple`)
-       return res.data.results.map((question: Question) => (
+       return res?.data?.results?.map((question: Question) => (
            {
                ...question,
                answers : shuffleArray([...question.incorrect_answers,question.correct_answer])
